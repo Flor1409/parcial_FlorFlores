@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Mi Rincón de Estudio ✨ | Apuntes y Aesthetic</title>
+    <!-- Google Fonts para darle un toque súper cuci -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconitos monos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --primary: #b5838d;
+            --secondary: #ffb4a2;
+            --accent: #ffcad4;
+            --text-color: #4a4a4a;
+            --text-light: #8c8c8c;
+            --shadow: 0 10px 30px rgba(181, 131, 141, 0.12);
+            --radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HEADER / NAVBAR */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 180, 162, 0.2);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(135deg, rgba(255,202,212,0.15) 0%, rgba(255,180,162,0.15) 100%);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(181, 131, 141, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #a36f7b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(181, 131, 141, 0.6);
+        }
+
+        /* CONTAINER GENERAL */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 100px 20px 50px 20px;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '✿';
+            display: block;
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        /* GRID DE APUNTES / MATERIAS */
+        .grid-subjects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            border: 1px solid rgba(255, 202, 212, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(181, 131, 141, 0.2);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* TO-DO LIST (WIDGET ESTUDIANTIL) */
+        .todo-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 202, 212, 0.3);
+        }
+
+        .todo-input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .todo-input-group input {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            outline: none;
+            font-family: 'Quicksand', sans-serif;
+            background: var(--bg-color);
+        }
+
+        .todo-input-group button {
+            background: var(--secondary);
+            border: none;
+            color: white;
+            padding: 0 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .todo-input-group button:hover {
+            background: var(--primary);
+        }
+
+        ul.todo-list {
+            list-style: none;
+        }
+
+        ul.todo-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: var(--bg-color);
+            margin-bottom: 10px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+
+        ul.todo-list li.completed {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        ul.todo-list li button {
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 202, 212, 0.1);
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 180, 162, 0.2);
+        }
+
+        footer span {
+            color: var(--primary);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-book-open-reader"></i> StudyLog
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#materias">Apuntes</a></li>
+                <li><a href="#tareas">Tareas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <h1>¡Holis, bienvenidos a mi rincón! ☕✨</h1>
+        <p>Aquí comparto mis apuntes bonitos, mis metas de estudio y un poquito de mi día a día como estudiante. ¡Espero que te sirva de inspiración!</p>
+        <a href="#materias" class="btn">Explorar apuntes 📚</a>
+    </section>
+
+    <div class="container">
+        
+        <!-- SECCIÓN DE MATERIAS / APUNTES -->
+        <section id="materias">
+            <h2 class="section-title">Mis Materias</h2>
+            <div class="grid-subjects">
+                
+                <div class="card">
+                    <i class="fa-solid fa-square-root-variable"></i>
+                    <h3>Matemáticas</h3>
+                    <p>Fórmulas, derivadas, integrales y truquitos para no reprobar cálculo este semestre. 📐</p>
+                    <a href="#">Ver apuntes <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-dna"></i>
+                    <h3>Biología Celular</h3>
+                    <p>Resúmenes súper coloridos sobre organelos, ADN y genética molecular. 🧬</p>
+                    <a href="#">Ver apuntes <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <h3>Programación Web</h3>
+                    <p>Mis prácticas de HTML, CSS, JavaScript y proyectos para la uni. 💻✨</p>
+                    <a href="#">Ver apuntes <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE TAREAS / TO-DO INTERACTIVO -->
+        <section id="tareas">
+            <h2 class="section-title">To-Do List del Día</h2>
+            <div class="todo-box">
+                <div class="todo-input-group">
+                    <input type="text" id="todoInput" placeholder="Añadir nueva tarea, ej: Estudiar química...">
+                    <button id="addBtn"><i class="fa-solid fa-plus"></i> Añadir</button>
+                </div>
+                <ul class="todo-list" id="todoList">
+                    <li class="completed"><span>☕ Tomar cafecito matutino</span><button onclick="this.parentElement.remove()"><i class="fa-solid fa-trash"></i></button></li>
+                    <li><span>📖 Leer 2 capítulos de historia</span><button onclick="this.parentElement.remove()"><i class="fa-solid fa-trash"></i></button></li>
+                    <li><span>📝 Terminar el proyecto de HTML</span><button onclick="this.parentElement.remove()"><i class="fa-solid fa-trash"></i></button></li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Hecho con mucho amor y cafecito ☕ por una estudiante <span>&hearts;</span> 2026</p>
+    </footer>
+
+    <!-- SCRIPT PARA LA TO-DO LIST -->
+    <script>
+        const input = document.getElementById('todoInput');
+        const btn = document.getElementById('addBtn');
+        const list = document.getElementById('todoList');
+
+        btn.addEventListener('click', () => {
+            if(input.value.trim() !== '') {
+                const li = document.createElement('li');
+                li.innerHTML = `<span>${input.value}</span> <button onclick="this.parentElement.remove()"><i class="fa-solid fa-trash"></i></button>`;
+                
+                // Permitir tachar al hacer clic
+                li.querySelector('span').addEventListener('click', () => {
+                    li.classList.toggle('completed');
+                });
+
+                list.appendChild(li);
+                input.value = '';
+            }
+        });
+
+        // Tachar las tareas iniciales también
+        document.querySelectorAll('.todo-list li span').forEach(span => {
+            span.addEventListener('click', () => {
+                span.parentElement.classList.toggle('completed');
+            });
+        });
+    </script>
+</body>
+</html>
